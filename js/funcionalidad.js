@@ -1,10 +1,11 @@
-const msj = document.querySelector("#textarea");
-const btnEncriptar = document.querySelector("#encriptar");
-const btnDesencriptar = document.querySelector("#desencriptar");
-const btnCopiar = document.querySelector("#copiar");
-const msjFinal = document.querySelector("#resultado");
+const msj = document.querySelector("#textarea"); // Textarea del mensaje a encriptar/desencriptar
+const btnEncriptar = document.querySelector("#encriptar"); // Botón para encriptar
+const btnDesencriptar = document.querySelector("#desencriptar"); // Botón para desencriptar
+const btnCopiar = document.querySelector("#copiar"); // Botón para copiar el mensaje resultante
+const msjFinal = document.querySelector("#resultado"); // Textarea para mostrar el mensaje resultante
 
 const msjEncriptar = txt => {
+  // Función para encriptar una sola letra
   switch (txt) {
     case 'a':
       return 'ia';
@@ -22,10 +23,11 @@ const msjEncriptar = txt => {
 };
 
 const encriptar = txt => {
-  const msjEncriptado = txt.replace(/a|e|i|o|u/g, msjEncriptar);
-  toggleElementVisibility('ocultar', false);
-  toggleElementVisibility('resultado', true);
-  toggleElementVisibility('copiar', true);
+  // Función para encriptar un mensaje completo
+  const msjEncriptado = txt.replace(/a|e|i|o|u/g, msjEncriptar); // Reemplaza cada letra por su versión encriptada
+  toggleElementVisibility('ocultar', false); // Oculta el elemento con id 'ocultar'
+  toggleElementVisibility('resultado', true); // Muestra el elemento con id 'resultado'
+  toggleElementVisibility('copiar', true); // Muestra el elemento con id 'copiar'
   return msjEncriptado;
 };
 
