@@ -50,7 +50,7 @@ const msjDesencriptar = txt => {
 
 const desencriptar = txt => {
   const msjDesencriptado = txt.replace(/ia|enter|imes|ober|ufat/g, msjDesencriptar);
-  if (txt === msjEncriptar) return msjFinal;
+  if (txt === encriptar(txt)) return msjFinal;
   else return msjDesencriptado;
 };
 
