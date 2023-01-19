@@ -1,11 +1,11 @@
-const msj = document.querySelector("#textarea"); // Textarea del mensaje a encriptar/desencriptar
-const btnEncriptar = document.querySelector("#encriptar"); // Botón para encriptar
-const btnDesencriptar = document.querySelector("#desencriptar"); // Botón para desencriptar
+const msj = document.querySelector("#textarea"); // Textarea del mensaje a cifrar/descifrar
+const btnCifrar = document.querySelector("#cifrar"); // Botón para cifrar
+const btnDescifrar = document.querySelector("#descifrar"); // Botón para descifrar
 const btnCopiar = document.querySelector("#copiar"); // Botón para copiar el mensaje resultante
 const msjFinal = document.querySelector("#resultado"); // Textarea para mostrar el mensaje resultante
 
-const msjEncriptar = txt => {
-  // Función para encriptar una sola letra
+const msjCifrar = txt => {
+  // Función para cifrar una sola letra
   switch (txt) {
     case 'a':
       return 'ia';
@@ -22,16 +22,18 @@ const msjEncriptar = txt => {
   }
 };
 
-const encriptar = txt => {
-  // Función para encriptar un mensaje completo
-  const msjEncriptado = txt.replace(/a|e|i|o|u/g, msjEncriptar); // Reemplaza cada letra por su versión encriptada
+let msjCifrado = '';
+
+const cifrar = txt => {
+  // Función para cifrar un mensaje completo
+  msjCifrado = txt.replace(/a|e|i|o|u/g, msjCifrar); // Reemplaza cada letra por su versión cifrada
   toggleElementVisibility('ocultar', false); // Oculta el elemento con id 'ocultar'
   toggleElementVisibility('resultado', true); // Muestra el elemento con id 'resultado'
   toggleElementVisibility('copiar', true); // Muestra el elemento con id 'copiar'
-  return msjEncriptado;
+  return msjCifrado;
 };
 
-const msjDesencriptar = txt => {
+const msjDescifrar = txt => {
   switch (txt) {
     case 'ia':
       return 'a';
@@ -48,23 +50,23 @@ const msjDesencriptar = txt => {
   }
 };
 
-const desencriptar = txt => {
-  const msjDesencriptado = txt.replace(/ia|enter|imes|ober|ufat/g, msjDesencriptar);
-  if(txt === msjEncriptado) return msjFinal;
-  else return msjDesencriptado;
+const descifrar = txt => {
+  const msjDescifrado = txt.replace(/ia|enter|imes|ober|ufat/g, msjDescifrar);
+  if (txt === msjCifrado) return msjFinal;
+  else return msjDescifrado;
 };
 
-btnEncriptar.addEventListener("click", event => {
+btnCifrar.addEventListener("click", event => {
   event.preventDefault();
   const txt = msj.value;
-  const msjSeguro = encriptar(txt);
+  const msjSeguro = cifrar(txt);
   msjFinal.value = msjSeguro;
 });
 
-btnDesencriptar.addEventListener("click", event => {
+btnDescifrar.addEventListener("click", event => {
   event.preventDefault();
   const txt = msj.value;
-  const msjSeguro = desencriptar(txt);
+  const msjSeguro = Descifrar(txt);
   msjFinal.value = msjSeguro;
 });
 
