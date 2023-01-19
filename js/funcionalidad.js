@@ -66,7 +66,7 @@ btnCifrar.addEventListener("click", event => {
 btnDescifrar.addEventListener("click", event => {
   event.preventDefault();
   const txt = msj.value;
-  const msjSeguro = Descifrar(txt);
+  const msjSeguro = descifrar(txt);
   msjFinal.value = msjSeguro;
 });
 
