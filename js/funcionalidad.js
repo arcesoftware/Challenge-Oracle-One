@@ -50,8 +50,8 @@ const msjDescifrar = txt => {
   }
 };
 
-const descifrar = txt => {
-  const msjDescifrado = txt.replace(/ia|enter|imes|ober|ufat/g, msjDescifrar);
+const Desencriptar = txt => {
+  const msjDescifrado = txt.replace(/ia|enter|imes|ober|ufat/g, mjsDesencriptar);
   if (txt === msjCifrado) return msjFinal;
   else return msjDescifrado;
 };
@@ -63,10 +63,10 @@ btnCifrar.addEventListener("click", event => {
   msjFinal.value = msjSeguro;
 });
 
-btnDescifrar.addEventListener("click", event => {
+btnDesencriptar.addEventListener("click", event => {
   event.preventDefault();
   const txt = msj.value;
-  const msjSeguro = descifrar(txt);
+  const msjSeguro = Desencriptar(txt);
   msjFinal.value = msjSeguro;
 });
 
