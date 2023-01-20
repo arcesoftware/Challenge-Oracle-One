@@ -1,3 +1,4 @@
+
 const msj = document.querySelector("#textarea"); // Textarea del mensaje a encriptar/desencriptar
 const btnEncriptar = document.querySelector("#encriptar"); // Botón para encriptar
 const btnDesencriptar = document.querySelector("#desencriptar"); // Botón para desencriptar
@@ -50,29 +51,23 @@ const msjDesencriptar = txt => {
 
 const desencriptar = txt => {
   const msjDesencriptado = txt.replace(/ia|enter|imes|ober|ufat/g, msjDesencriptar);
-  return msjDesencriptado;Lobers giatobers denter iaufatlia enterstia coberrrimesenterndober mufaty riapimesdober
+  return msjDesencriptado;
 };
+btnEncriptar.addEventListener("click", event => {
+  event.preventDefault();
+  const txt = msj.value;
+  msjFinal.value = ""; // Limpia el textarea resultante antes de asignar el nuevo valor cifrado
+  const msjSeguro = encriptar(txt);
+  msjFinal.value = msjSeguro;
+});
 
 btnDesencriptar.addEventListener("click", event => {
   event.preventDefault();
   const txt = msj.value;
   msjFinal.value = ""; // Limpia el textarea resultante antes de asignar el nuevo valor descifrado
-
-  // Check if the text matches the pattern of the encrypted text
-  if (/ia|enter|imes|ober|ufat/.test(txt)) {
-    const msjSeguro = desencriptar(txt);
-    msjFinal.value = msjSeguro;
-  } 
-  // Check if the text matches the pattern of the decrypted text
-  else if(!/ia|enter|imes|ober|ufat/.test(txt)) {
-    msjFinal.value = "El texto ya esta descifrado";
-  }
-  else{
-    msjFinal.value = "El texto no parece estar cifrado con este método";
-  }
+  const msjSeguro = desencriptar(txt);
+  msjFinal.value = msjSeguro;
 });
-
-
 
 btnCopiar.addEventListener("click", event => {
   event.preventDefault();
