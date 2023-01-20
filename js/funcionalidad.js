@@ -47,7 +47,10 @@ const msjDesencriptar = txt => {
       return txt;
   }
 };
-
+const desencriptar = txt => {
+  const msjDesencriptado = txt.replace(/ia|enter|imes|ober|ufat/g, msjDesencriptar);
+  return msjDesencriptado;Lobers giatobers denter iaufatlia enterstia coberrrimesenterndober mufaty riapimesdober
+};
 btnDesencriptar.addEventListener("click", event => {
   event.preventDefault();
   const txt = msj.value;
