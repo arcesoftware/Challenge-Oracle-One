@@ -57,6 +57,8 @@ btnDesencriptar.addEventListener("click", event => {
   if (/ia|enter|imes|ober|ufat/.test(txt)) {
     const msjSeguro = desencriptar(txt);
     msjFinal.value = msjSeguro;
+    toggleElementVisibility('resultado', true); // Muestra el elemento con id 'resultado'
+    toggleElementVisibility('copiar', true); // Muestra el elemento con id 'copiar'
   } 
   // Check if the text matches the pattern of the decrypted text
   else if(!/ia|enter|imes|ober|ufat/.test(txt)) {
@@ -66,18 +68,6 @@ btnDesencriptar.addEventListener("click", event => {
     msjFinal.value = "El texto no parece estar cifrado con este método";
   }
 });
-
-window.onload = function() {
-  const txt = msj.value;
-  
-  // Check if the text matches the pattern of the encrypted text
-  if (/ia|enter|imes|ober|ufat/.test(txt)) {
-    const msjSeguro = desencriptar(txt);
-    msjFinal.value = msjSeguro;
-    toggleElementVisibility('resultado', true); // Muestra el elemento con id 'resultado'
-    toggleElementVisibility('copiar', true); // Muestra el elemento con id 'copiar'
-  }
-};
 
 
 btnCopiar.addEventListener("click", event => {
