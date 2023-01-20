@@ -67,19 +67,18 @@ btnDesencriptar.addEventListener("click", event => {
   }
 });
 
-btnDesencriptar.addEventListener("click", event => {
-  event.preventDefault();
+window.onload = function() {
   const txt = msj.value;
-  msjFinal.value = ""; // Limpia el textarea resultante antes de asignar el nuevo valor descifrado
-
+  
   // Check if the text matches the pattern of the encrypted text
   if (/ia|enter|imes|ober|ufat/.test(txt)) {
     const msjSeguro = desencriptar(txt);
     msjFinal.value = msjSeguro;
-  } else {
-    msjFinal.value = "El texto no parece estar cifrado con este método";
+    toggleElementVisibility('resultado', true); // Muestra el elemento con id 'resultado'
+    toggleElementVisibility('copiar', true); // Muestra el elemento con id 'copiar'
   }
-});
+};
+
 
 btnCopiar.addEventListener("click", event => {
   event.preventDefault();
