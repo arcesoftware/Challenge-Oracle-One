@@ -48,16 +48,23 @@ const msjDesencriptar = txt => {
   }
 };
 
-const desencriptar = txt => {
-  const msjDesencriptado = txt.replace(/ia|enter|imes|ober|ufat/g, msjDesencriptar);
-  return msjDesencriptado;
-};
-btnEncriptar.addEventListener("click", event => {
+btnDesencriptar.addEventListener("click", event => {
   event.preventDefault();
   const txt = msj.value;
-  msjFinal.value = ""; // Limpia el textarea resultante antes de asignar el nuevo valor cifrado
-  const msjSeguro = encriptar(txt);
-  msjFinal.value = msjSeguro;
+  msjFinal.value = ""; // Limpia el textarea resultante antes de asignar el nuevo valor descifrado
+
+  // Check if the text matches the pattern of the encrypted text
+  if (/ia|enter|imes|ober|ufat/.test(txt)) {
+    const msjSeguro = desencriptar(txt);
+    msjFinal.value = msjSeguro;
+  } 
+  // Check if the text matches the pattern of the decrypted text
+  else if(!/ia|enter|imes|ober|ufat/.test(txt)) {
+    msjFinal.value = "El texto ya esta descifrado";
+  }
+  else{
+    msjFinal.value = "El texto no parece estar cifrado con este método";
+  }
 });
 
 btnDesencriptar.addEventListener("click", event => {
