@@ -53,18 +53,12 @@ const desencriptar = txt => {
   const msjDesencriptado = txt.replace(/ia|enter|imes|ober|ufat/g, msjDesencriptar);
   return msjDesencriptado;
 };
-
-let repeat = true;
 btnEncriptar.addEventListener("click", event => {
-  repeat = true; // Set the repeat variable to true when the button is pressed
-  while (repeat) {
-    event.preventDefault();
-    const txt = msj.value;
-    msjFinal.value = ""; // Limpia el textarea resultante antes de asignar el nuevo valor cifrado
-    const msjSeguro = encriptar(txt);
-    msjFinal.value = msjSeguro;
-    // Add code here to check if the desired action is completed and set repeat to false if it is
-  }
+  event.preventDefault();
+  const txt = msj.value;
+  msjFinal.value = ""; // Limpia el textarea resultante antes de asignar el nuevo valor cifrado
+  const msjSeguro = encriptar(txt);
+  msjFinal.value = msjSeguro;
 });
 
 btnDesencriptar.addEventListener("click", event => {
